@@ -106,21 +106,25 @@
             CodeMirror is a code-editor component that can be embedded in
             Web pages.
 
-            The core library provides <em>only</em> the editor
-            component, no accompanying buttons, auto-completion, or other IDE
+            The core library provides <em>only</em> the editor component, no accompanying buttons, auto-completion, or other IDE
             functionality.
 
-            It does provide a rich API on top of which such
-            functionality can be straightforwardly implemented. See
-            the <a href="#addons">addons</a> included in the distribution,
+            It does provide a rich API on top
+            of which such functionality can be straightforwardly implemented.
+
+            See the <a href="#addons">addons</a> included in the distribution,
             and the <a href="https://github.com/codemirror/CodeMirror/wiki/CodeMirror-addons">list
                 of externally hosted addons</a>, for reusable
             implementations of extra features.
+
             <span class="kor">
                 코드미러는 웹페이지에 삽입할 수 있는 코드에디터 컴포넌트 입니다.
-                에디터 콤포넌트만 코어 라이브러리로 제공됩니다. 버튼이나 자동완성 또는 IDE기능은 제공되지 않습니다.
+                에디터 콤포넌트만 코어 라이브러리로 제공됩니다.
+                어떠한 버튼이나 자동완성 또는 IDE기능은 제공되지 않습니다.
 
-                제공된 풍부한 API의 ??
+                상단에 제공된 풍부한 API로 그러한 기능들을 쉽게 구현할 수 있습니다.
+
+                추가적인 특성을 재구현하기 위해 배포된 코드안에 애드온과 외부에서 제공된 애드온 리스트를 확인하세요.
             </span>
         </p>
 
@@ -137,7 +141,7 @@
 
             <span class="kor">
                 코드미러는 언어특성 모드를 사용할 수 있습니다. 모드는 언어별 컬러링[선택적 들여쓰기]된 텍스트로 변환되는 자바스크립트 프로그램 입니다.
-                배포판에 모드의 갯수는 <a href="../mode/"><code>mode/</code></a>디렉토리를 확인하세요,
+                배포판에 다양한 모드는 <a href="../mode/"><code>mode/</code></a>디렉토리를 확인하세요,
                 그리고 다른 언어의 모드를 새롭게 추가하는 것은 어렵지 않습니다.
             </span>
 
@@ -153,11 +157,13 @@
             The easiest way to use CodeMirror is to simply load the script
             and style sheet found under <code>lib/</code> in the distribution,
             plus a mode script from one of the <code>mode/</code> directories.
+
             (See <a href="compress.html">the compression helper</a> for an
             easy way to combine scripts.) For example:
             <span class="kor">
                 코드미러를 사용하는 가장 쉬운방법은 스크립트와 스타일시트를 배포파일안에 <code>lib/</code>디렉토리에서 찾고,
                 <code>mode/</code>디렉토리에서 모드 스크립트를 찾아 로드하는 것입니다.
+
                 (참고로 스크립트 파일들을 압축하여 사용할 때 다음의 링크를 참조하세요<a href="compress.html">the compression helper</a> )
                 <br>
                 예제:
@@ -173,8 +179,7 @@
             about that later.</a>)
 
             <span class="kor">
-                (모듈로더를 사용할 수도 있습니다. <a href="#modloader">More
-                about that later.</a>)
+                (모듈로더를 사용할 수도 있습니다. <a href="#modloader">더 자세한 사항은 나중에 설명</a>)
             </span>
         </p>
 
@@ -193,13 +198,13 @@
             The editor will be appended to the document body, will start
             empty, and will use the mode that we loaded. To have more control
             over the new editor, a configuration object can be passed
-            to <a href="#CodeMirror"><code>CodeMirror</code></a> as a second
+            to <a href="#CodeMirror"><code>CodeMirror</code></a>
+            as a second
             argument:
 
             <span class="kor">
-                에디터는 document body에 추가되어야 하고 빈 상태여야 합니다.
-                그리고 미리 로드된 모드를 사용해야 합니다. 에디터에서 더 많은 기능을 사용하기 위해서는 오브젝트 환경설정에 대해 알아야 합니다.
-                다음절 <a href="#CodeMirror"><code>CodeMirror</code></a>에서 환경설정에 대해 설명하고 있습니다.
+                에디터는 document body에 추가될것이고 빈 상태로 시작할 것입니다.
+                그리고 미리 로드된 모드를 사용해야 합니다. 에디터에서 더 많은 기능을 사용하기 위해서는 두번째 인자로 환경설정 오브젝트를 넘겨라.
             </span>
 
         </p>
@@ -217,8 +222,9 @@
             configuration options that CodeMirror accepts.
 
             <span class="kor">
-                에디터를
-
+                이것은 내장된 코드와 함께 초기화해줄 것이고, 사용할 자바스크립트 모드를 명백히 알려줄 것이다.
+                (멀티플 모드를 사용할 때 유용할 것입니다.)
+                보다 자세한 사항은 <a href="#config">여기</a>에서 확인하세요.
             </span>
         </p>
 
@@ -231,9 +237,9 @@
             textarea with a real editor:
 
             <span class="kor">
-                이 케이스는 당신이 에디터를 엘리먼트에 추가하지 않고 다양한 컨트롤을 추가하는 방법입니다.
-                첫번째 아규먼트로 코드미러 펑션 또는 돔 엘리먼트를 반환하는 함수를 추가하여 도큐먼트 어딘가로 추가 하게 할 수 있습니다.
-                ...
+                당신이 에디터를 엘리먼트에 추가하기를 원치 않고 그것을 추가하는 방법을 다양하게 제어할 필요가 있는 경우에는
+                코드미러에 첫번째 아규먼트에 함수 인자로 돔 엘리먼트가 주어지는데 이것으로 도큐먼트 어딘가로 추가 하게 할 수 있다.
+                이것은 예를 들어 실제 에디터를 텍스트에어리어로 교체하는데 사용할 수 있다.
             </span>
         </p>
 
@@ -245,7 +251,7 @@
             CodeMirror, the library provides a much more powerful
             shortcut:
             <span class="kor">
-                대신에 다음의 케이스, 코드미러 기본사용 방법, 더 강력한 숏컷을 사용할 수 있습니다.
+                하지만, 이 일반적인 코드미러 사용법의 경우에는  더 쉽게 쓸 수 있다.
             </span>
         </p>
 
@@ -258,7 +264,8 @@
                 reference</a> for a full description of this method.
 
             <span class="kor">
-
+                이것은 폼(폼의 일부분)이 서브밋될 때 텍스트에어리어 변경된 값과 에디터의 내용이 올바르게 전달될 수 있도록 해줍니다.
+                좀더 자세한 내용은 <a href="#fromTextArea">API reference</a>를 참고하세요
             </span>
         </p>
 
@@ -274,7 +281,9 @@
             present, AMD-style (RequireJS) will be used.
 
             <span class="kor">
-
+                코드미러는 AMD또는 CommonJS 환경에서 사용 할수 있는 어뎁터를 포함하고 있다.
+                exports와 module변수가 있고 그것의 변수타입이 오브젝트명 커먼제이에스의 리콰이어가 사용되고,
+                그렇지 않고 디파인 함수와 amd 상태가 있으면 AMD스타일(리콰이어제이에스)가 사용된다.
             </span>
         </p>
 
@@ -283,17 +292,24 @@
             use <a href="http://browserify.org/">Browserify</a> or similar
             tools to statically build modules using CodeMirror. Alternatively,
             use <a href="http://requirejs.org/">RequireJS</a> to dynamically
-            load dependencies at runtime. Both of these approaches have the
+            load dependencies at runtime.
+            Both of these approaches have the
             advantage that they don't use the global namespace and can, thus,
             do things like load multiple versions of CodeMirror alongside each
             other.
 
             <span class="kor">
-
+                코드를 이용하면서 정적으로 모듈을 빌드하기위해 브라우저티파이나 그와 비슷한 툴을 사용할 수 있다.
+                다른방법으로 런타임에서 동적 로드 의존성을 위해 리콰이어제이에스를 사용할 있다. 이 두가지 방법모두 이점이 있다.
+                변수 오염을 시키지 않아 코드미러의 여러가지 버전을 함께 로드해도 문제가 발생하지 않는다.
             </span>
         </p>
 
-        <p>Here's a simple example of using RequireJS to load CodeMirror:</p>
+        <p>Here's a simple example of using RequireJS to load CodeMirror:
+            <span class="kor">
+                여기에 리콰이어제이에스를 이용한 간단한 샘플이 있습니다.
+            </span>
+        </p>
 
     <pre data-lang="javascript">require([
   "cm/lib/codemirror", "cm/mode/htmlmixed/htmlmixed"
@@ -314,7 +330,10 @@
             configuration option instead, as in:
 
             <span class="kor">
-
+                이것은 mixed HTML mode(XML, Javascript, and CSS가 필요한)가 자동으로 로드된다.
+                코드미러의 경로를 설정하기 위해 리콰이어JS에 "paths"옵션을 사용하지 마라.
+                왜냐하면 상대경로 설정으로 인해 서브모듈 로딩에 실패할 수 있다.
+                대신에 패키지옵션을 사용해라, 다음처럼:
             </span>
         </p>
 
