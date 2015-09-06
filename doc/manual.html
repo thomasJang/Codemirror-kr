@@ -350,41 +350,87 @@
     <section id=config>
         <h2>Configuration</h2>
 
-        <p>Both the <a href="#CodeMirror"><code>CodeMirror</code></a>
+        <p>
+            Both the <a href="#CodeMirror"><code>CodeMirror</code></a>
             function and its <code>fromTextArea</code> method take as second
             (optional) argument an object containing configuration options.
             Any option not supplied like this will be taken
             from <a href="#defaults"><code>CodeMirror.defaults</code></a>, an
             object containing the default options. You can update this object
-            to change the defaults on your page.</p>
+            to change the defaults on your page.
 
-        <p>Options are not checked in any way, so setting bogus option
-            values is bound to lead to odd errors.</p>
+            <span class="kor">
+                <a href="#CodeMirror"><code>CodeMirror</code></a> 함수와 <code>fromTextArea</code> 메소드 둘다
+                두번째 인자(선택적)로 환경설정 옵션을 포함한 오브젝트를 취한다.
+                아무런 옵션도 제공되지 않을 땐 <a href="#defaults"><code>CodeMirror.defaults</code></a>로 부터 옵션을 취할것이다.
+                <code>CodeMirror.defaults</code>는 기본 옵션을 포함하고 있고, 당신의 페이지에서 변경 할 수 있다.
+            </span>
+        </p>
 
-        <p>These are the supported options:</p>
+        <p>
+            Options are not checked in any way, so setting bogus option
+            values is bound to lead to odd errors.
+            <span class="kor">
+                확인되지 않은 옵션을 이상한 옵션값을 셋팅하면 기묘한 에러를 야기한다.
+            </span>
+        </p>
+
+        <p>
+            These are the supported options:
+            <span class="kor">
+                지원되는 옵션들:
+            </span>
+        </p>
 
         <dl>
             <dt id="option_value"><code><strong>value</strong>: string|CodeMirror.Doc</code></dt>
-            <dd>The starting value of the editor. Can be a string, or
+            <dd>
+                The starting value of the editor. Can be a string, or
                 a <a href="#api_doc">document object</a>.
+                <span class="kor">
+                에디터의 초기값으로 문자열이나 <a href="#api_doc">document object</a>이 될 수 있습니다.
+                </span>
             </dd>
 
             <dt id="option_mode"><code><strong>mode</strong>: string|object</code></dt>
-            <dd>The mode to use. When not given, this will default to the
-                first mode that was loaded. It may be a string, which either
+            <dd>
+                The mode to use. When not given, this will default to the
+                first mode that was loaded.
+
+                It may be a string, which either
                 simply names the mode or is
                 a <a href="http://en.wikipedia.org/wiki/MIME">MIME</a> type
-                associated with the mode. Alternatively, it may be an object
-                containing configuration options for the mode, with
-                a <code>name</code> property that names the mode (for
-                example <code>{name: "javascript", json: true}</code>). The demo
+                associated with the mode.
+
+                Alternatively, it may be an object
+                containing configuration options for the mode,
+                with a <code>name</code> property that names the mode (for
+                example <code>{name: "javascript", json: true}</code>).
+
+                The demo
                 pages for each mode contain information about what configuration
-                parameters the mode supports. You can ask CodeMirror which modes
+                parameters the mode supports.
+
+                You can ask CodeMirror which modes
                 and MIME types have been defined by inspecting
                 the <code>CodeMirror.modes</code>
-                and <code>CodeMirror.mimeModes</code> objects. The first maps
+                and <code>CodeMirror.mimeModes</code> objects.
+
+                The first maps
                 mode names to their constructors, and the second maps MIME types
                 to mode specs.
+
+                <span class="kor">
+                    모드 사용법. 모드값을 정해주지 않으면 로드된 첫번째 모드가 기본값이 됩니다.
+                    이 값이 문자열이면, 모드의 단순명칭이거나 <a href="http://en.wikipedia.org/wiki/MIME">MIME</a> type 이름과 동일한 모드네임 입니다.
+                    그렇지 않고, 이 값이 모드의 설정 옵션을 포함한 오브젝트이면,
+                    오브젝트에는 모드의 이름을 뜻하는 <code>name</code> 속성(예를 들어 <code>{name: "javascript", json: true}</code>) 이 있어야 합니다.
+                    데모페이지에서는 각각의 모드에 대해 설정 파라미터를 어떻게 해야 하는지 설명되어 있습니다.
+
+                    <code>CodeMirror.modes</code> 와 <code>CodeMirror.mimeModes</code> 오브젝트를 살펴보면 정의된 모드와 MIME types에 대해 알수 있습니다.
+
+                    <code>CodeMirror.modes</code>에서 모드이름을, <code>CodeMirror.mimeModes</code>에서 MIME types를 포함하고 있습니다.
+                </span>
             </dd>
 
             <dt id="option_lineSeparator"><code><strong>lineSeparator</strong>: string|null</code></dt>
@@ -396,10 +442,18 @@
                 specific string is given, lines will only be split on that
                 string, and output will, by default, use that same
                 separator.
+
+                <span class="kor">
+                    에디터에 정확하게 행 구분자가 설정되지 않으면 기본값은 <code>null</code>입니다.
+                    문서는 CRLF와 CRs, LFs와 행을 구분할 수 있습니다. 그리고 LF 는 행 구분자로 모든 아웃풋에서 사용됩니다
+                    (<a href="#getValue"><code>getValue</code></a>를 했을 때처럼).
+                    행 구분자를 설정하게 되면 행 구분자로는 설정된 문자열을 사용하게 될 것이고 아웃폿도 동일하게 됩니다.
+                </span>
             </dd>
 
             <dt id="option_theme"><code><strong>theme</strong>: string</code></dt>
-            <dd>The theme to style the editor with. You must make sure the
+            <dd>
+                The theme to style the editor with. You must make sure the
                 CSS file defining the corresponding <code>.cm-s-[name]</code>
                 styles is loaded (see
                 the <a href="../theme/"><code>theme</code></a> directory in the
@@ -409,93 +463,169 @@
                 example <code>"foo bar"</code> will assign both
                 the <code>cm-s-foo</code> and the <code>cm-s-bar</code> classes
                 to the editor.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_indentUnit"><code><strong>indentUnit</strong>: integer</code></dt>
             <dd>How many spaces a block (whatever that means in the edited
                 language) should be indented. The default is 2.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_smartIndent"><code><strong>smartIndent</strong>: boolean</code></dt>
             <dd>Whether to use the context-sensitive indentation that the
                 mode provides (or just indent the same as the line before).
                 Defaults to true.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_tabSize"><code><strong>tabSize</strong>: integer</code></dt>
-            <dd>The width of a tab character. Defaults to 4.</dd>
+            <dd>
+                The width of a tab character. Defaults to 4.
+
+                <span class="kor">
+
+                </span>
+            </dd>
 
             <dt id="option_indentWithTabs"><code><strong>indentWithTabs</strong>: boolean</code></dt>
-            <dd>Whether, when indenting, the first N*<code>tabSize</code>
+            <dd>
+                Whether, when indenting, the first N*<code>tabSize</code>
                 spaces should be replaced by N tabs. Default is false.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_electricChars"><code><strong>electricChars</strong>: boolean</code></dt>
-            <dd>Configures whether the editor should re-indent the current
+            <dd>
+                Configures whether the editor should re-indent the current
                 line when a character is typed that might change its proper
                 indentation (only works if the mode supports indentation).
                 Default is true.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_specialChars"><code><strong>specialChars</strong>: RegExp</code></dt>
-            <dd>A regular expression used to determine which characters
+            <dd>
+                A regular expression used to determine which characters
                 should be replaced by a
                 special <a href="#option_specialCharPlaceholder">placeholder</a>.
                 Mostly useful for non-printing special characters. The default
                 is <code>/[\u0000-\u0019\u00ad\u200b-\u200f\u2028\u2029\ufeff]/</code>.
+
+                <span class="kor">
+
+                </span>
             </dd>
             <dt id="option_specialCharPlaceholder"><code><strong>specialCharPlaceholder</strong>: function(char) → Element</code></dt>
-            <dd>A function that, given a special character identified by
+            <dd>
+                A function that, given a special character identified by
                 the <a href="#option_specialChars"><code>specialChars</code></a>
                 option, produces a DOM node that is used to represent the
                 character. By default, a red dot (<span style="color: red">•</span>)
                 is shown, with a title tooltip to indicate the character code.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_rtlMoveVisually"><code><strong>rtlMoveVisually</strong>: boolean</code></dt>
-            <dd>Determines whether horizontal cursor movement through
+            <dd>
+                Determines whether horizontal cursor movement through
                 right-to-left (Arabic, Hebrew) text is visual (pressing the left
                 arrow moves the cursor left) or logical (pressing the left arrow
                 moves to the next lower index in the string, which is visually
                 right in right-to-left text). The default is <code>false</code>
                 on Windows, and <code>true</code> on other platforms.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_keyMap"><code><strong>keyMap</strong>: string</code></dt>
-            <dd>Configures the key map to use. The default
+            <dd>
+                Configures the key map to use. The default
                 is <code>"default"</code>, which is the only key map defined
                 in <code>codemirror.js</code> itself. Extra key maps are found in
                 the <a href="../keymap/"><code>key map</code></a> directory. See
                 the <a href="#keymaps">section on key maps</a> for more
                 information.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_extraKeys"><code><strong>extraKeys</strong>: object</code></dt>
-            <dd>Can be used to specify extra key bindings for the editor,
+            <dd>
+                Can be used to specify extra key bindings for the editor,
                 alongside the ones defined
                 by <a href="#option_keyMap"><code>keyMap</code></a>. Should be
                 either null, or a valid <a href="#keymaps">key map</a> value.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_lineWrapping"><code><strong>lineWrapping</strong>: boolean</code></dt>
-            <dd>Whether CodeMirror should scroll or wrap for long lines.
+            <dd>
+                Whether CodeMirror should scroll or wrap for long lines.
                 Defaults to <code>false</code> (scroll).
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_lineNumbers"><code><strong>lineNumbers</strong>: boolean</code></dt>
-            <dd>Whether to show line numbers to the left of the editor.</dd>
+            <dd>
+                Whether to show line numbers to the left of the editor.
+
+                <span class="kor">
+
+                </span>
+            </dd>
 
             <dt id="option_firstLineNumber"><code><strong>firstLineNumber</strong>: integer</code></dt>
-            <dd>At which number to start counting lines. Default is 1.</dd>
+            <dd>
+                At which number to start counting lines. Default is 1.
+
+                <span class="kor">
+
+                </span>
+            </dd>
 
             <dt id="option_lineNumberFormatter"><code><strong>lineNumberFormatter</strong>: function(line: integer) → string</code></dt>
-            <dd>A function used to format line numbers. The function is
+            <dd>
+                A function used to format line numbers. The function is
                 passed the line number, and should return a string that will be
                 shown in the gutter.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_gutters"><code><strong>gutters</strong>: array&lt;string&gt;</code></dt>
-            <dd>Can be used to add extra gutters (beyond or instead of the
+            <dd>
+                Can be used to add extra gutters (beyond or instead of the
                 line number gutter). Should be an array of CSS class names, each
                 of which defines a <code>width</code> (and optionally a
                 background), and which will be used to draw the background of
@@ -505,12 +635,21 @@
                 default to be to the right of all other gutters). These class
                 names are the keys passed
                 to <a href="#setGutterMarker"><code>setGutterMarker</code></a>.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_fixedGutter"><code><strong>fixedGutter</strong>: boolean</code></dt>
-            <dd>Determines whether the gutter scrolls along with the content
+            <dd>
+                Determines whether the gutter scrolls along with the content
                 horizontally (false) or whether it stays fixed during horizontal
                 scrolling (true, the default).
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_scrollbarStyle"><code><strong>scrollbarStyle</strong>: string</code></dt>
@@ -523,15 +662,21 @@
             </dd>
 
             <dt id="option_coverGutterNextToScrollbar"><code><strong>coverGutterNextToScrollbar</strong>: boolean</code></dt>
-            <dd>When <a href="#option_fixedGutter"><code>fixedGutter</code></a>
+            <dd>
+                When <a href="#option_fixedGutter"><code>fixedGutter</code></a>
                 is on, and there is a horizontal scrollbar, by default the
                 gutter will be visible to the left of this scrollbar. If this
                 option is set to true, it will be covered by an element with
                 class <code>CodeMirror-gutter-filler</code>.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_inputStyle"><code><strong>inputStyle</strong>: string</code></dt>
-            <dd>Selects the way CodeMirror handles input and focus. The core
+            <dd>
+                Selects the way CodeMirror handles input and focus. The core
                 library defines the <code>"textarea"</code>
                 and <code>"contenteditable"</code> input models. On mobile
                 browsers, the default is <code>"contenteditable"</code>. On
@@ -540,13 +685,22 @@
                 the <code>"contenteditable"</code> model. The intention is to
                 make it the default on modern desktop browsers in the
                 future.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_readOnly"><code><strong>readOnly</strong>: boolean|string</code></dt>
-            <dd>This disables editing of the editor content by the user. If
+            <dd>
+                This disables editing of the editor content by the user. If
                 the special value <code>"nocursor"</code> is given (instead of
                 simply <code>true</code>), focusing of the editor is also
                 disallowed.
+
+                <span class="kor">
+
+                </span>
             </dd>
 
             <dt id="option_showCursorWhenSelecting"><code><strong>showCursorWhenSelecting</strong>: boolean</code></dt>
