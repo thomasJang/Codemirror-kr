@@ -114,7 +114,7 @@
 
             See the <a href="#addons">addons</a> included in the distribution,
             and the <a href="https://github.com/codemirror/CodeMirror/wiki/CodeMirror-addons">list
-                of externally hosted addons</a>, for reusable
+            of externally hosted addons</a>, for reusable
             implementations of extra features.
 
             <span class="kor">
@@ -137,7 +137,7 @@
             The distribution comes with a number
             of modes (see the <a href="../mode/"><code>mode/</code></a>
             directory), and it isn't hard to <a href="#modeapi">write new
-                ones</a> for other languages.
+            ones</a> for other languages.
 
             <span class="kor">
                 코드미러는 언어특성 모드를 사용할 수 있습니다. 모드는 언어별 컬러링[선택적 들여쓰기]된 텍스트로 변환되는 자바스크립트 프로그램 입니다.
@@ -261,7 +261,7 @@
             This will, among other things, ensure that the textarea's value
             is updated with the editor's contents when the form (if it is part
             of a form) is submitted. See the <a href="#fromTextArea">API
-                reference</a> for a full description of this method.
+            reference</a> for a full description of this method.
 
             <span class="kor">
                 이것은 폼(폼의 일부분)이 서브밋될 때 텍스트에어리어 변경된 값과 에디터의 내용이 올바르게 전달될 수 있도록 해줍니다.
@@ -458,14 +458,21 @@
                 styles is loaded (see
                 the <a href="../theme/"><code>theme</code></a> directory in the
                 distribution). The default is <code>"default"</code>, for which
-                colors are included in <code>codemirror.css</code>. It is
+                colors are included in <code>codemirror.css</code>.
+
+                It is
                 possible to use multiple theming classes at once—for
                 example <code>"foo bar"</code> will assign both
                 the <code>cm-s-foo</code> and the <code>cm-s-bar</code> classes
                 to the editor.
 
                 <span class="kor">
-
+                    에디터의 스타일 테마는
+                    로드된 CSS파일에 선언된 <code>.cm-s-[name]</code> 으로 해야합니다.
+                    (배포된 디렉토리의 다음 폴더 <a href="../theme/"><code>theme</code></a>를 보세요).
+                    기본값은 <code>"default"</code>입니다. 색상에 대한 내용은 <code>codemirror.css</code>에 포함되어 있습니다.
+                    여러개의 테마 클랙스를 동시에 사용할 수 있으며, 예를 들어 <code>"foo bar"</code>라고 하면
+                    <code>cm-s-foo</code> 와 <code>cm-s-bar</code> 클래스를 에디터에 지정하게 됩니다.
                 </span>
             </dd>
 
@@ -474,7 +481,7 @@
                 language) should be indented. The default is 2.
 
                 <span class="kor">
-
+                    들여쓰기 할때 몇개의 공백 문자(에디터 편집시에)를 사용하게 할지 설정합니다. 기본값은 2개
                 </span>
             </dd>
 
@@ -484,7 +491,7 @@
                 Defaults to true.
 
                 <span class="kor">
-
+                    모드에서 제공되는 문맥 또는 직전 라인의 들여쓰기에 따라 들여쓰기를 할지 여부를 설정합니다. 기본값은 true.
                 </span>
             </dd>
 
@@ -493,7 +500,7 @@
                 The width of a tab character. Defaults to 4.
 
                 <span class="kor">
-
+                    탭 문자열의 너비. 기본값은 4
                 </span>
             </dd>
 
@@ -503,7 +510,7 @@
                 spaces should be replaced by N tabs. Default is false.
 
                 <span class="kor">
-
+                    들여쓰기 할때, N개의 탭사이즈에 맞는 공백문자를 N의 탭으로 치환할지 여부를 설정합니다. 기본값은 false
                 </span>
             </dd>
 
@@ -515,7 +522,7 @@
                 Default is true.
 
                 <span class="kor">
-
+                    에디터에서 현재줄에 타이핑 할때 제공된 들여쓰기 문자열로 변경하여 재 들여쓰기 할지 설정합니다(모드에서 지원하는 들여쓰기 인 경우에만). 기본값은 true
                 </span>
             </dd>
 
@@ -528,7 +535,9 @@
                 is <code>/[\u0000-\u0019\u00ad\u200b-\u200f\u2028\u2029\ufeff]/</code>.
 
                 <span class="kor">
-
+                    정규식 구문으로 special <a href="#option_specialCharPlaceholder">placeholder</a>로 치환되게 할 것인지 결정합니다.
+                    일반적으로 출력되지 않는 특수문자열을 사용합니다.
+                    기본값은 <code>/[\u0000-\u0019\u00ad\u200b-\u200f\u2028\u2029\ufeff]/</code>.
                 </span>
             </dd>
             <dt id="option_specialCharPlaceholder"><code><strong>specialCharPlaceholder</strong>: function(char) → Element</code></dt>
