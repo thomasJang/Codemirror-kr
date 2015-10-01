@@ -746,7 +746,11 @@
 				future.
 
                 <span class="kor">
-
+					코드미러의 인풋과 포커스를 다루는 방법을 선택한다.
+	                코어 라이브러리에 <code>"textarea"</code>와 <code>"contenteditable"</code> 입력 모델로 정의 되어있다.
+	                모바일 브라우저에서는, <code>"contenteditable"</code>이. 데스크탑 브라우저에서는, <code>"textarea"</code>가 기본값이다.
+	                IME지원과 스크린리더는 <code>"contenteditable"</code> 모델이 더 좋다.
+	                앞으로 모던 데스크탑 브라우저에서는 기본값으로 할 계획이다.
                 </span>
 			</dd>
 			
@@ -758,7 +762,9 @@
 				disallowed.
 
                 <span class="kor">
-
+					사용자가 에디터의 내용을 수정하는 못하게 한다.
+	                특별한 값인 <code>"nocursor"</code>를 부여하면(대신에 <code>true</code> 사용가능),
+	                에디터에 포커싱 또한 못하게 한다.
                 </span>
 			</dd>
 			
@@ -767,7 +773,7 @@
 				active. Defaults to false.
 
                 <span class="kor">
-
+					셀렉션이 활성화 될 때 커서를 보여줄지 결정한다. 기본값을 false.
                 </span>
 			</dd>
 			
@@ -777,7 +783,7 @@
 				cursors on them.
 
                 <span class="kor">
-
+					활성화 되면 기본으로, 셀렉션 없이 복사나 잘라내기 하면 커서가 있는 줄 전체를 복사나 잘라내기 한다.
                 </span>
 			</dd>
 			
@@ -787,6 +793,7 @@
 				200.
 
                 <span class="kor">
+					에디터에 저장되는 되돌리기 레벨의 최대값.
 
                 </span>
 			</dd>
