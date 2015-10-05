@@ -575,8 +575,8 @@
 				on Windows, and <code>true</code> on other platforms.
 
                 <span class="kor">
-					오른쪽에서 왼쪽으로(아랍어, 히브리어) 문자표현(왼쪽 화살표를 눌렀을 때 왼쪽 커서 를 이동)의 수평 커서 이동을 하게 하거나
-					논리적으로 (왼쪽 화살표를 눌렀을 때 문자열의 다음 낮은 인덱스로 이동 ..)
+	                **
+	                오른쪽에서 왼쪽으로 움직이는 수평커서의 문자를 시각적으로(왼쪽 화살표를 눌렀을 때 왼쪽 커서 를 이동)하게 할지 논리적(왼쪽 화살표를 눌렀을 때 문자열의 다음 낮은 인덱스로 이동 ..) 으로 할지 결정한다.
 	                기본값은 윈도우에서는 false 다른 플랫폼에서는 true
                 </span>
 			</dd>
@@ -594,10 +594,10 @@
 
                 <span class="kor">
 					사용할 키 맵을 설정합니다.
-	                기본값은 "default", codemirror.js 자신에서 정의된 유일한 키맵이다.
+	                기본값은 "default", codemirror.js 자신에게 정의된 유일한 키맵이다.
 	                추가 키 맵은
 	                <a href="../keymap/"><code>key map</code></a> 디렉토리에서 찾을 수 있다.
-	                더 자세하 사항은 <a href="#keymaps">section on key maps</a> 보시오
+	                더 자세한 사항은 <a href="#keymaps">section on key maps</a> 을 참고하세요
                 </span>
 			</dd>
 			
@@ -609,8 +609,8 @@
 				either null, or a valid <a href="#keymaps">key map</a> value.
 
                 <span class="kor">
-	                에디터에 바인딩된 상세 추가키를 유일하게 정의된 <a href="#option_keyMap"><code>keyMap</code></a>과 함께 사용할 수 있다.
-					널이거나 <a href="#keymaps">key map</a> 값으로 검증된 값이 어야 한다.
+	                에디터에 바인딩된 상세 추가키를 정의된 <a href="#option_keyMap"><code>keyMap</code></a>과 함께 사용할 수 있다.
+					널이거나 유효한 <a href="#keymaps">key map</a> 값이 어야 한다.
                 </span>
 			</dd>
 			
@@ -650,7 +650,7 @@
 				shown in the gutter.
 
                 <span class="kor">
-					줄 번호에 포멧을 사용하는 함수.
+					줄 번호를 표현하는 함수.
 	                함수는 줄넘버를 받아서 거터에 나타내야할 문자열을 반환한다.
                 </span>
 			</dd>
@@ -671,25 +671,29 @@
 				to <a href="#setGutterMarker"><code>setGutterMarker</code></a>.
 
                 <span class="kor">
-					추가 거터를 사용할 수 있습니다. (줄번호 거터에 추가하거나 대신하는)
-	                CSS 클래스 이름을 담은 배열이어야 합니다. 각각의 클래스는 너비(선택적으로 배경)를 정의하고 있어야 합니다.
-	                그리고 거터의 배경에 그려져야 합니다.
+	                추가 거터를 사용할 수 있습니다. (줄번호 거터를 확장하거나 대신하는)
+	                CSS 클래스 이름을 담은 배열이어야 합니다.
+	                각각배열의 아이템의 CSS 클래스는 거터를 표현하는데 사용될 너비(선택적으로 배경)를 정의하고 있어야 한다.
 
-					<code>CodeMirror-linenumbers</code> 클래스를 포함하고 있다면,
-	                줄 번호 거터의 포지션을 정확하게 정해라(기본값은 모든 다른 거터의 오른쪽이 될 것이다).
-	                이 클래스 이름들은 <a href="#setGutterMarker"><code>setGutterMarker</code></a>에서 받은 키들이다.
+	                줄 번호 거터의 포지션을 정확하게 정하기 위해 <code>CodeMirror-linenumbers</code> 클래스를 포함해도 된다.
+	                (기본값은 모든 다른 거터의 오른쪽이 될 것이다)
 
+	                이 클래스 이름들은 <a href="#setGutterMarker"><code>setGutterMarker</code></a>에 넘겨진 키들이다.
                 </span>
 			</dd>
 			
 			<dt id="option_fixedGutter"><code><strong>fixedGutter</strong>: boolean</code></dt>
 			<dd>
-				Determines whether the gutter scrolls along with the content
-				horizontally (false) or whether it stays fixed during horizontal
+				Determines whether
+
+				the gutter scrolls along with the content horizontally (false)
+
+				or
+				whether it stays fixed during horizontal
 				scrolling (true, the default).
 
                 <span class="kor">
-					거터가 수평적인 내용에 스크롤(false) 에 포함 할지 또는 수평 스크롤링 되는 동안 fixed한 채로 있을 지 결정합니다.
+					거터가 내용에 따라 수평으로 스크롤될지 (false) 또는 수평 스크롤링 되는 동안 고정된채로 있을 지 결정합니다.
 	                기본값은 true
                 </span>
 			</dd>
@@ -698,10 +702,8 @@
 			<dd>Chooses a scrollbar implementation. The default
 				is <code>"native"</code>, showing native scrollbars.
 				
-				The core
-				library also provides the <code>"null"</code> style, which
-				completely hides the
-				scrollbars.
+				The core library also provides the <code>"null"</code> style, which
+				completely hides the scrollbars.
 				
 				<a href="#addon_simplescrollbars">Addons</a> can
 				implement additional scrollbar models.
@@ -709,9 +711,10 @@
                 <span class="kor">
 					스크롤바 스타일을 선택합니다.
 	                기본값은 <code>"native"</code>, 네이티브 스크롤바를 보여줍니다.
+
 	                또한 완벽하게 스크롤바를 제거하는 <code>"null"</code>스타일도 제공됩니다.
 
-	                <a href="#addon_simplescrollbars">Addons</a> 에서 스크롤바 모델을 추가 구현할 수 있다.
+	                <a href="#addon_simplescrollbars">Addons</a> 에서 추가적인 스크롤바 모델을 구현할 수 있다.
                 </span>
 			</dd>
 			
@@ -725,18 +728,18 @@
 				class <code>CodeMirror-gutter-filler</code>.
 
                 <span class="kor">
-					<a href="#option_fixedGutter"><code>fixedGutter</code></a>가 사용중일 때,
-	                그리고 수평 스크롤바가 있을 때, 기본으로 거터가 스크롤바의 왼쪽에 보여진다.
-	                만약 이 옵션이 true로 셋팅 되어 있다면,
+					<a href="#option_fixedGutter"><code>fixedGutter</code></a>가 사용중이고
+	                수평 스크롤바가 있을 때, 기본으로 거터가 스크롤바의 왼쪽에 보여진다.
 
-                    <code>CodeMirror-gutter-filler</code> 클래스에서 담당하고 있다.
+	                만약 이 옵션이 true로 셋팅 되어 있을때, <code>CodeMirror-gutter-filler</code> 클래스가 엘리먼트를 꾸며준다.
                 </span>
 			</dd>
 			
 			<dt id="option_inputStyle"><code><strong>inputStyle</strong>: string</code></dt>
 			<dd>
-				Selects the way CodeMirror handles input and focus. The core
-				library defines the <code>"textarea"</code>
+				Selects the way CodeMirror handles input and focus.
+
+				The core library defines the <code>"textarea"</code>
 				and <code>"contenteditable"</code> input models. On mobile
 				browsers, the default is <code>"contenteditable"</code>. On
 				desktop browsers, the default is <code>"textarea"</code>.
@@ -749,7 +752,7 @@
 					코드미러의 인풋과 포커스를 다루는 방법을 선택한다.
 	                코어 라이브러리에 <code>"textarea"</code>와 <code>"contenteditable"</code> 입력 모델로 정의 되어있다.
 	                모바일 브라우저에서는, <code>"contenteditable"</code>이. 데스크탑 브라우저에서는, <code>"textarea"</code>가 기본값이다.
-	                IME지원과 스크린리더는 <code>"contenteditable"</code> 모델이 더 좋다.
+	                IME와 스크린리더의 지원은 <code>"contenteditable"</code> 모델이 더 좋다.
 	                앞으로 모던 데스크탑 브라우저에서는 기본값으로 할 계획이다.
                 </span>
 			</dd>
@@ -763,7 +766,7 @@
 
                 <span class="kor">
 					사용자가 에디터의 내용을 수정하는 못하게 한다.
-	                특별한 값인 <code>"nocursor"</code>를 부여하면(대신에 <code>true</code> 사용가능),
+	                특별한 값인 <code>"nocursor"</code>를 부여하면(<code>true</code> 대신에),
 	                에디터에 포커싱 또한 못하게 한다.
                 </span>
 			</dd>
@@ -794,10 +797,11 @@
 
                 <span class="kor">
 					에디터에 저장되는 되돌리기 레벨의 최대값.
-
+						기본값은 200
                 </span>
 			</dd>
-			
+<-- 10-05 -->
+
 			<dt id="option_historyEventDelay"><code><strong>historyEventDelay</strong>: integer</code></dt>
 			<dd>The period of inactivity (in milliseconds) that will cause a
 				new history event to be started when typing or deleting.
