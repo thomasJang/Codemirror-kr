@@ -808,7 +808,8 @@
 				Defaults to 1250.
 
                 <span class="kor">
-
+					입력하거나 삭제 할 때 새로운 히스토리 이벤트 시작이 방지되는 시간. 기본값은 1250
+	                <!-- will cause ?? -->
                 </span>
 			</dd>
 			
@@ -818,7 +819,9 @@
 				will be assigned.
 
                 <span class="kor">
-
+					에디터에 할당된 <a href="http://www.w3.org/TR/html401/interact/forms.html#adef-tabindex">tab
+	                index</a>.
+	                값을 정해주지 않는다면 tab index 없는 것으로 할당 됩니다.
                 </span>
 			</dd>
 			
@@ -832,7 +835,9 @@
 				focused.
 
                 <span class="kor">
-
+					코드미러를 초기화할때 코드미러에 포커스가 되게 할지 여부. 기본값은 off.
+	                 <a href="#fromTextArea"><code>fromTextArea</code></a>가 사용되고, 이 옵션에 정확한 값 true가 주어지면 텍스트에어리어에 포커스된다.
+	                또는 <code>autofocus</code> 속성이 있고 다른 엘리먼트에 포커스 되어 있지 않았으면 포커스 된다.
                 </span>
 			</dd>
 		</dl>
@@ -842,14 +847,15 @@
 			might want to skip them the first time you read this manual.</p>
 
                 <span class="kor">
-
+					아래는 몇개의 특별한, 로우레벨 옵션 목록은. 매우 특별한 상황에서만 유용하다,
+	                이 메뉴얼을 처음 읽는다면 건너뛰어도 좋다.
                 </span>
 		<dl>
 			<dt id="option_dragDrop"><code><strong>dragDrop</strong>: boolean</code></dt>
 			<dd>Controls whether drag-and-drop is enabled. On by default.
 
                 <span class="kor">
-
+					드래그앤 드랍 조작을 활성화. 기본값
                 </span>
 			</dd>
 			
@@ -859,7 +865,10 @@
 				negative value hides the cursor entirely.
 
                 <span class="kor">
-
+					커서깜박임이는데 사용되는 밀리세컨드시간의 반.
+	                기본값 깜박이는 비율은 530ms.
+	                이값을 0으로 셋팅하면, 커서깜박임이 비활성횐다.
+	                마이너스 값을 셋팅하면 커서가 완전히 숨겨진다.
                 </span>
 			</dd>
 			
@@ -869,7 +878,7 @@
 				a scrollable document. Default is 0.
 
                 <span class="kor">
-
+					커서가 보여지는 문서의 상단또는 하단에 다가갈때 위와 아래에 유지되는 여분의 공간. 기본값은 0.
                 </span>
 			</dd>
 			
@@ -881,7 +890,8 @@
 				of the line, looks better
 
                 <span class="kor">
-
+					커서의 높이를 결정. 기본값은 1, 한줄의 높이 전체를 의미.
+	                글꼴(취향에 의해) 보다 작은 높이(예를 들어 0.85), 줄의 바닥에 ???? , 보기에 더 좋다.
                 </span>
 			</dd>
 			
@@ -892,7 +902,7 @@
 				the point of the click. Defaults to <code>true</code>.
 
                 <span class="kor">
-
+					현재 선택영역 밖에서 클릭으로 컨텍스트 메뉴가 열리게 조작할 때, 커서가 클릭 포인트로 이동합니다. 기본값은 true.
                 </span>
 			</dd>
 			
@@ -905,73 +915,110 @@
 				the highlighting more or less aggressive.
 
                 <span class="kor">
+					<code>workTime</code> 밀리세컨드동안 작동하고 <code>workDelay</code> 밀리세컨드동안 타임아웃 슬립을 사용하는(workDelay동안 응답이 없으면 취소)
+	                백그라운드 스레드(자바스크립트는 스레드가 없으므로 마치 스레드처럼 작동하는)에 의해 코드가 강조된다.
+	                기본값은 200과 300, 이 옵션값들을 높거나 낮게 바꾸어 강조처리 할 수 있다.
 
                 </span>
 			</dd>
 			
 			<dt id="option_pollInterval"><code><strong>pollInterval</strong>: number</code></dt>
-			<dd>Indicates how quickly CodeMirror should poll its input
+			<dd>
+				Indicates how quickly CodeMirror should poll its input
 				textarea for changes (when focused). Most input is captured by
 				events, but some things, like IME input on some browsers, don't
 				generate events that allow CodeMirror to properly detect it.
 				Thus, it polls. Default is 100 milliseconds.
 
                 <span class="kor">
-
+	                텍스트에어리에 변경된 입력된 내용이 코드미러에 얼마나 빨리 표시할지(포커스 될 때).
+	                대부분의 입력은 이벤트로 감지된다, 그러나 몇몇은, 어떤 브라우저의 IME 입력같은,
+	                코드미러에 적적하게 감지되도록 허용된 이벤트가 발생되지 않는다 (브라우저마다 이벤트의 세부적인 속성이 다름)
+					??? 기본값은 100 밀리세컨드.
                 </span>
 			</dd>
 			
 			<dt id="option_flattenSpans"><code><strong>flattenSpans</strong>: boolean</code></dt>
-			<dd>By default, CodeMirror will combine adjacent tokens into a
-				single span if they have the same class. This will result in a
-				simpler DOM tree, and thus perform better. With some kinds of
-				styling (such as rounded corners), this will change the way the
-				document looks. You can set this option to false to disable this
-				behavior.
+			<dd>
+				By default, CodeMirror will combine adjacent tokens into a single span if they have the same class.
+
+				This will result in a simpler DOM tree, and thus perform better.
+
+				With some kinds of styling (such as rounded corners), this will change the way the document looks.
+
+				You can set this option to false to disable this behavior.
 
                 <span class="kor">
-
+					기본으로, 코드미러가 같은 클래스를 가진 단일 span가 있는 인접한 토큰을 연결한다.
+	                단일 DOM 트리로 만들어지는데 더욱 성능이 좋다.
+	                특정 스타일링(라운드 코너와 같은)을 사용하는 경우, 문서의 표현을 위해 방법을 바꾸어야 한다.
+	                이 옵션은 false로 셋팅하여 이것을 비활성화 할 수 있다.
                 </span>
 			</dd>
 			
 			<dt id="option_addModeClass"><code><strong>addModeClass</strong>: boolean</code></dt>
-			<dd>When enabled (off by default), an extra CSS class will be
+			<dd>
+				When enabled (off by default), an extra CSS class will be
 				added to each token, indicating the
 				(<a href="#innerMode">inner</a>) mode that produced it, prefixed
-				with <code>"cm-m-"</code>. For example, tokens from the XML mode
-				will get the <code>cm-m-xml</code> class.
+				with <code>"cm-m-"</code>.
+
+				For example, tokens from the XML mode will get the <code>cm-m-xml</code> class.
+
+				<span class="kor">
+					활성화하면(기본값은 off),
+					코드미러에
+					정의한 문서 모드(<a href="#innerMode">inner</a>) 클래스의 앞에 <code>"cm-m-"</code>를 붙여진 클래스가 각각의 토큰에 추가된다.
+
+					예를 들어, 문서모드가 XML이면 <code>cm-m-xml</code> 클래스를 토큰이 가지게 된다
+                </span>
 			</dd>
 			
 			<dt id="option_maxHighlightLength"><code><strong>maxHighlightLength</strong>: number</code></dt>
-			<dd>When highlighting long lines, in order to stay responsive,
+			<dd>
+				When highlighting long lines, in order to stay responsive,
 				the editor will give up and simply style the rest of the line as
 				plain text when it reaches a certain position. The default is
 				10 000. You can set this to <code>Infinity</code> to turn off
 				this behavior.
 
                 <span class="kor">
+					긴줄이 하이라이팅 될 때,
 
+	                유지하기 위해 에디터는 응답을 포기하고 단순히 라인의 나머지 평문스타일을 합니다.
+	                어떤 위치에 도달 때.
+	                기본값은 10,000. 무한대로 설정하면 이 기능을 끌 수 있습니다.
                 </span>
 			</dd>
 			
 			<dt id="option_viewportMargin"><code><strong>viewportMargin</strong>: integer</code></dt>
-			<dd>Specifies the amount of lines that are rendered above and
+			<dd>
+				Specifies the amount of lines that are rendered above and
 				below the part of the document that's currently scrolled into
-				view. This affects the amount of updates needed when scrolling,
-				and the amount of work that such an update does. You should
-				usually leave it at its default, 10. Can be set
+				view.
+				This affects the amount of updates needed when scrolling,
+				and the amount of work that such an update does.
+
+				You should usually leave it at its default, 10.
+				Can be set
 				to <code>Infinity</code> to make sure the whole document is
 				always rendered, and thus the browser's text search works on it.
 				This <em>will</em> have bad effects on performance of big
 				documents.
 
                 <span class="kor">
-
+	                뷰의 현재 스크롤된 문서의 부분의 위와 아래 라인의 양을 지정한다.
+					스크롤되는 동안 갱신이 필요한 양에 영향을 주는 작업의 양. (??)
+	                대부분은 기본값(10) 을 그대로 두어라.
+	                무한대로 설정할 수 있는데 전체 문서를 항상 그린다. 그러므로 브라우저의 텍스트 검색작업이 수행된다.
+	                큰문서에서 성능이 좋지 않게 된다.
                 </span>
 			</dd>
 		</dl>
 	</section>
-	
+
+	<!-- 10-24 -->
+
 	<section id=events>
 		<h2>Events</h2>
 		
